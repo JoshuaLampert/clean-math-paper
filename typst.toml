@@ -1,0 +1,17 @@
+[package]
+name = "clean-math-paper"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Joshua Lampert"]
+license = "MIT"
+description = "A simple and good looking template for mathematical papers"
+repository = "https://github.com/JoshuaLampert/clean-math-paper"
+keywords = ["arXiv", "mathematics", "computer science"]
+categories = ["paper"]
+disciplines = ["mathematics", "engineering", "computer-science"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
