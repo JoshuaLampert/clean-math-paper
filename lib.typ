@@ -60,8 +60,8 @@
   abstract: [],
   keywords: (),
   AMS: (),
-  heading-color: rgb(0, 0, 0),
-  link-color: rgb(0, 0, 0),
+  heading-color: rgb("#000000"),
+  link-color: rgb("#000000"),
   body,
 ) = {
   // Set the document's basic properties.
