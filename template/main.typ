@@ -54,7 +54,7 @@ The template uses #link("https://typst.app/universe/package/great-theorems/")[`g
   This is the proof of the example theorem.
 ]
 
-We also have definitions, lemmas, remarks, examples, questions among others. Here is an example of a definition:
+We also provide definitions, lemmas, remarks, examples, and questions among others. Here is an example of a definition:
 
 #definition(title: "Example Definition")[
   This is an example definition.
