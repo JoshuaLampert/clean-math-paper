@@ -41,7 +41,7 @@ typst init @preview/clean-math-paper:0.1.0
 
 ## Acknowledgements
 
-As inspiration on how to structure this template, We used the [arkheion](https://github.com/mgoulao/arkheion) template.
+As inspiration on how to structure this template. We used the [arkheion](https://github.com/mgoulao/arkheion) template.
 
 ## Feedback & Improvements
 
