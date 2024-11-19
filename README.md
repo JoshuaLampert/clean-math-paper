@@ -12,7 +12,7 @@ Of course, it can also be used for other subjects, but the following math-specif
 
 ## Set-Up
 
-The template is already filled with dummy data, to give users an [impression how it looks like](https://github.com/JoshuaLampert/clean-math-paper/blob/main/template/main.pdf). The paper is obtained by compiling `main.typ`.
+The template is already filled with dummy data, to give users an impression how it looks like. The paper is obtained by compiling `main.typ`.
 
 - after [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation) you can conveniently use the following to create a new folder containing this project.
 
