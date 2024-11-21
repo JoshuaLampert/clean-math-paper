@@ -1,12 +1,15 @@
 #import "@preview/great-theorems:0.1.1": *
-#import "@preview/headcount:0.1.0": *
+#import "@preview/rich-counters:0.2.2": *
 #import "@preview/i-figured:0.2.4": *
 
-#let theoremcounter = counter("mathblocks")  // counter for mathblocks
+// counter for mathblocks
+#let theoremcounter = rich-counter(
+  identifier: "mathblocks",
+  inherited_levels: 1,
+)
 
 #let my_mathblock = mathblock.with(
   counter: theoremcounter,
-  numbering: dependent-numbering("1.1", levels: 1),
   breakable: false,
   titlix: title => [(#title):],
   // suffix: [#h(1fr) $triangle.r$],
@@ -76,7 +79,6 @@
   show ref: set text(fill: link-color)
   set enum(numbering: "(i)")
   show: great-theorems-init
-  show heading: reset-counter(theoremcounter, levels: 1)
 
   // Heading settings.
   set heading(numbering: "1.1")
