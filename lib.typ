@@ -55,6 +55,24 @@
 
 #let proof = proofblock()
 
+// To also handle content (e.g. something like $dagger$) as affiliation-id,
+// cf. https://github.com/typst/typst/issues/2196#issuecomment-1728135476
+#let to-string(content) = {
+  if type(content) in (int, float, decimal, version, bytes, label, type, str) {
+    str(content)
+  } else {
+    if content.has("text") {
+      content.text
+    } else if content.has("children") {
+      content.children.map(to-string).join("")
+    } else if content.has("body") {
+      to-string(content.body)
+    } else if content == [ ] {
+      " "
+    }
+  }
+}
+
 #let template(
   title: "",
   authors: (),
@@ -116,6 +134,11 @@
       columns: (1fr,) * calc.min(3, authors.len()),
       gutter: 1.5em,
       ..authors.map(author => align(center)[
+        #let affiliation-id = if "affiliation-id" in author {
+          author.affiliation-id
+        } else {
+          ""
+        }
         #if author.keys().contains("orcid") {
           link("http://orcid.org/" + author.orcid)[
             #pad(bottom: -8pt,
@@ -123,7 +146,7 @@
                 columns: (8pt, auto, 8pt),
                 rows: 10pt,
                 [],
-                text(black)[*#author.name*#super(str(author.affiliation-id))],
+                text(black)[*#author.name*#super(to-string(affiliation-id))],
                 [
                   #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
                 ]
@@ -134,7 +157,7 @@
           grid(
             columns: (auto),
             rows: 2pt,
-            [*#author.name*#super(str(author.affiliation-id))],
+            [*#author.name*#super(to-string(affiliation-id))],
           )
         }
       ]),
@@ -145,10 +168,12 @@
   pad(
     top: 0.5em,
     x: 2em,
-    for affiliation in affiliations {
-      align(center)[
-        #super(str(affiliation.id))#affiliation.name
-      ]
+    if affiliations != none {
+      for affiliation in affiliations {
+        align(center)[
+          #super(to-string(affiliation.id))#affiliation.name
+        ]
+      }
     }
   )
 

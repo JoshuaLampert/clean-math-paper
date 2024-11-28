@@ -1,4 +1,4 @@
-#import "@preview/clean-math-paper:0.1.0": *
+#import "../lib.typ": *
 
 #let date = datetime.today().display("[month repr:long] [day], [year]")
 #show: template.with(
