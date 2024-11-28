@@ -13,8 +13,8 @@
     (id: "*", name: "Corresponding author")
   ),
   date: date,
-  heading-color: rgb("#2e44a6"),
-  link-color: rgb("#12472b"),
+  heading-color: rgb("#0000ff"),
+  link-color: rgb("#008002"),
   // Insert your abstract after the colon, wrapped in brackets.
   // Example: `abstract: [This is my abstract...]`
   abstract: lorem(30),
