@@ -78,7 +78,7 @@
   authors: (),
   affiliations: (),
   date: datetime.today().display(),
-  abstract: [],
+  abstract: none,
   keywords: (),
   AMS: (),
   heading-color: rgb("#000000"),
@@ -180,28 +180,30 @@
   align(center)[#date]
 
   // Abstract.
-  pad(
-    x: 3em,
-    top: 1em,
-    bottom: 0.4em,
-    align(center)[
-      #heading(
-        outlined: false,
-        numbering: none,
-        text(0.85em, smallcaps[Abstract]),
-      )
-      #set par(justify: true)
-      #set text(hyphenate: false)
+  if abstract != none {
+    pad(
+      x: 3em,
+      top: 1em,
+      bottom: 0.4em,
+      align(center)[
+        #heading(
+          outlined: false,
+          numbering: none,
+          text(0.85em, smallcaps[Abstract]),
+        )
+        #set par(justify: true)
+        #set text(hyphenate: false)
 
-      #abstract
-    ],
-  )
+        #abstract
+      ],
+    )
+  }
 
   // Keywords
   if keywords.len() > 0 {
       [*_Keywords_*. #h(0.3cm)] + keywords.map(str).join(" · ")
+      linebreak()
   }
-  linebreak()
   // AMS
   if AMS.len() > 0 {
       [*AMS subject classification*. #h(0.3cm)] + AMS.map(str).join(", ")
