@@ -96,8 +96,13 @@
   show link: set text(fill: link-color)
   show ref: set text(fill: link-color)
   set enum(numbering: "(i)")
-  set outline(indent: 2em)
+  set outline(indent: 2em) // indent: auto does not work well with appendices
   show: great-theorems-init
+
+  // table label on top and not below the table
+  show figure.where(
+    kind: table
+  ): set figure.caption(position: top)
 
   // Heading settings.
   set heading(numbering: "1.1")
