@@ -17,7 +17,7 @@ The template is already filled with dummy data, to give users an impression how 
 - after [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation) you can conveniently use the following to create a new folder containing this project.
 
 ```bash
-typst init @preview/clean-math-paper:0.1.1
+typst init @preview/clean-math-paper:0.2.0
 ```
 
 - edit the data in `main.typ` → `#show template.with([your data])`
