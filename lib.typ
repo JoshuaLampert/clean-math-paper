@@ -96,6 +96,7 @@
   show link: set text(fill: link-color)
   show ref: set text(fill: link-color)
   set enum(numbering: "(i)")
+  set outline(indent: 2em)
   show: great-theorems-init
 
   // Heading settings.
