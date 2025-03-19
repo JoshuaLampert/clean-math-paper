@@ -1,6 +1,6 @@
-#import "@preview/great-theorems:0.1.2": *
-#import "@preview/rich-counters:0.2.2": *
-#import "@preview/i-figured:0.2.4": *
+#import "@preview/great-theorems:0.1.2": great-theorems-init, mathblock, proofblock
+#import "@preview/rich-counters:0.2.2": rich-counter
+#import "@preview/i-figured:0.2.4": reset-counters, show-equation
 
 // counter for mathblocks
 #let theoremcounter = rich-counter(
