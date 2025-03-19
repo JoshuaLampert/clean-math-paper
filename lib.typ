@@ -225,7 +225,7 @@
       let vals = nums.pos()
       let value = "ABCDEFGHIJ".at(vals.at(0) - 1)
       if vals.len() == 1 {
-        return "APPENDIX " + value
+        return "Appendix " + value
       }
       else {
         return value + "." + nums.pos().slice(1).map(str).join(".")
