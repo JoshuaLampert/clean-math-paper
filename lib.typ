@@ -51,6 +51,21 @@
       "appendix": "Annexe",
       "abstract": "Résumé",
     ),
+    es: (
+      "theorem": "Teorema",
+      "proposition": "Proposición",
+      "corollary": "Corolario",
+      "lemma": "Lema",
+      "definition": "Definición",
+      "remark": "Comentario",
+      "example": "Ejemplo",
+      "question": "Pregunta",
+      "proof": "Demostración",
+      "keywords": "Palabras clave",
+      "ams": "Clasificación AMS",
+      "appendix": "Apéndice",
+      "abstract": "Resumen",
+    ),
   ),
 )
 
