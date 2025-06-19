@@ -24,6 +24,7 @@ typst init @preview/clean-math-paper:0.2.0
 
 ### Parameters of the Template
 
+- `lang`: Language of the paper. Supported languages are English and French, default is "en".
 - `title`: Title of the paper.
 - `authors`: List of names of the authors of the paper. Each entry of the list is a dictionary with the following keys:
   - `name`: Name of the author.
