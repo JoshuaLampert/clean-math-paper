@@ -2,6 +2,51 @@
 #import "@preview/rich-counters:0.2.2": rich-counter
 #import "@preview/i-figured:0.2.4": reset-counters, show-equation
 
+// Language support (English and French)
+#let language-translations = (
+  en: (
+    "theorem": "Theorem",
+    "proposition": "Proposition",
+    "corollary": "Corollary",
+    "lemma": "Lemma",
+    "definition": "Definition",
+    "remark": "Remark",
+    "example": "Example",
+    "question": "Question",
+    "proof": "Proof",
+    "keywords": "Keywords",
+    "ams": "AMS subject classification",
+    "appendix": "Appendix",
+    "abstract": "Abstract",
+  ),
+  fr: (
+    "theorem": "Théorème",
+    "proposition": "Proposition",
+    "corollary": "Corollaire",
+    "lemma": "Lemme",
+    "definition": "Définition",
+    "remark": "Remarque",
+    "example": "Exemple",
+    "question": "Question",
+    "proof": "Preuve",
+    "keywords": "Mots clés",
+    "ams": "Classification AMS",
+    "appendix": "Annexe",
+    "abstract": "Résumé",
+  ),
+)
+
+#let get-language-title(label) = {
+  context {
+    let language = str(text.lang)
+    if language in language-translations {
+      return language-translations.at(language).at(label, default: "Unknown")
+    } else {
+      return language-translations.en.at(label, default: "Unknown")
+    }
+  }
+}
+
 // counter for mathblocks
 #let theoremcounter = rich-counter(
   identifier: "mathblocks",
@@ -17,43 +62,37 @@
 
 // theorem etc. settings
 #let theorem = my-mathblock(
-  blocktitle: "Theorem",
+  blocktitle: get-language-title("theorem"),
   bodyfmt: text.with(style: "italic"),
 )
 
 #let proposition = my-mathblock(
-  blocktitle: "Proposition",
+  blocktitle: get-language-title("proposition"),
   bodyfmt: text.with(style: "italic"),
 )
 
 #let corollary = my-mathblock(
-  blocktitle: "Corollary",
+  blocktitle: get-language-title("corollary"),
   bodyfmt: text.with(style: "italic"),
 )
 
 #let lemma = my-mathblock(
-  blocktitle: "Lemma",
+  blocktitle: get-language-title("lemma"),
   bodyfmt: text.with(style: "italic"),
 )
 
 #let definition = my-mathblock(
-  blocktitle: "Definition",
+  blocktitle: get-language-title("definition"),
   bodyfmt: text.with(style: "italic"),
 )
 
-#let remark = my-mathblock(
-  blocktitle: [_Remark_],
-)
+#let remark = my-mathblock(blocktitle: [_#get-language-title("remark")_])
 
-#let example = my-mathblock(
-  blocktitle: [_Example_],
-)
+#let example = my-mathblock(blocktitle: [_#get-language-title("example")_])
 
-#let question = my-mathblock(
-  blocktitle: [_Question_],
-)
+#let question = my-mathblock(blocktitle: [_#get-language-title("question")_])
 
-#let proof = proofblock()
+#let proof = proofblock(prefix: [_#get-language-title("proof")._])
 
 // To also handle content (e.g. something like $dagger$) as affiliation-id,
 // cf. https://github.com/typst/typst/issues/2196#issuecomment-1728135476
@@ -74,6 +113,7 @@
 }
 
 #let template(
+  lang: "en",
   title: "",
   authors: (),
   affiliations: (),
@@ -92,7 +132,7 @@
     numbering: "1",
     number-align: center,
   )
-  set text(font: "New Computer Modern", lang: "en")
+  set text(font: "New Computer Modern", lang: lang)
   show link: set text(fill: link-color)
   show ref: set text(fill: link-color)
   set enum(numbering: "(i)")
@@ -100,9 +140,7 @@
   show: great-theorems-init
 
   // table label on top and not below the table
-  show figure.where(
-    kind: table
-  ): set figure.caption(position: top)
+  show figure.where(kind: table): set figure.caption(position: top)
 
   // Heading settings.
   set heading(numbering: "1.1")
@@ -128,7 +166,7 @@
     align(center)[
       #block(text(weight: 500, fill: heading-color, 1.75em, title))
       #v(1em, weak: true)
-    ]
+    ],
   )
   line(length: 100%, stroke: 2pt)
 
@@ -147,7 +185,8 @@
         }
         #if author.keys().contains("orcid") {
           link("http://orcid.org/" + author.orcid)[
-            #pad(bottom: -8pt,
+            #pad(
+              bottom: -8pt,
               grid(
                 columns: (8pt, auto, 8pt),
                 rows: 10pt,
@@ -155,13 +194,13 @@
                 text(black)[*#author.name*#super(to-string(affiliation-id))],
                 [
                   #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
-                ]
-              )
+                ],
+              ),
             )
           ]
         } else {
           grid(
-            columns: (auto),
+            columns: auto,
             rows: 2pt,
             [*#author.name*#super(to-string(affiliation-id))],
           )
@@ -180,7 +219,7 @@
           #super(to-string(affiliation.id))#affiliation.name
         ]
       }
-    }
+    },
   )
 
   align(center)[#date]
@@ -195,7 +234,7 @@
         #heading(
           outlined: false,
           numbering: none,
-          text(0.85em, smallcaps[Abstract]),
+          text(0.85em, smallcaps(get-language-title("abstract"))),
         )
         #set par(justify: true)
         #set text(hyphenate: false)
@@ -207,12 +246,12 @@
 
   // Keywords
   if keywords.len() > 0 {
-      [*_Keywords_*. #h(0.3cm)] + keywords.map(str).join(" · ")
-      linebreak()
+    [*_#get-language-title("keywords")_*. #h(0.3cm)] + keywords.map(str).join(" · ")
+    linebreak()
   }
   // AMS
   if AMS.len() > 0 {
-      [*AMS subject classification*. #h(0.3cm)] + AMS.map(str).join(", ")
+    [*#get-language-title("ams")*. #h(0.3cm)] + AMS.map(str).join(", ")
   }
   // Main body.
   set par(justify: true)
@@ -230,12 +269,11 @@
       let vals = nums.pos()
       let value = "ABCDEFGHIJ".at(vals.at(0) - 1)
       if vals.len() == 1 {
-        return "Appendix " + value
-      }
-      else {
+        return get-language-title("appendix") + " " + value
+      } else {
         return value + "." + nums.pos().slice(1).map(str).join(".")
       }
-    }
-  );
+    },
+  )
   [#pagebreak() #body]
 }
