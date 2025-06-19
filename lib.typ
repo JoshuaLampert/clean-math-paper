@@ -2,7 +2,7 @@
 #import "@preview/rich-counters:0.2.2": rich-counter
 #import "@preview/i-figured:0.2.4": reset-counters, show-equation
 
-// Language support (English and French)
+// Language support
 #let language-translations = (
   en: (
     "theorem": "Theorem",
@@ -18,6 +18,21 @@
     "ams": "AMS subject classification",
     "appendix": "Appendix",
     "abstract": "Abstract",
+  ),
+  de: (
+    "theorem": "Satz",
+    "proposition": "Proposition",
+    "corollary": "Korollar",
+    "lemma": "Lemma",
+    "definition": "Definition",
+    "remark": "Anmerkung",
+    "example": "Beispiel",
+    "question": "Frage",
+    "proof": "Beweis",
+    "keywords": "Schlüsselwörter",
+    "ams": "AMS-Klassifikation",
+    "appendix": "Anhang",
+    "abstract": "Zusammenfassung",
   ),
   fr: (
     "theorem": "Théorème",

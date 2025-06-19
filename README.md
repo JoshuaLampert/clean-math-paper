@@ -36,7 +36,7 @@ typst init @preview/clean-math-paper:0.2.0
 - `abstract`: Abstract of the paper. If not provided, nothing will be shown.
 - `keywords`: List of keywords of the paper. If not provided, nothing will be shown.
 - `AMS`: List of AMS subject classifications of the paper. If not provided, nothing will be shown.
-- `lang`: Language of the paper. Supported languages are English and French, default is "en".
+- `lang`: Language of the paper. Supported languages are English, German, and French, default is "en".
 - `heading-color`: Color of the headings including the title.
 - `link-color`: Color of the links.
 
