@@ -33,11 +33,11 @@ typst init @preview/clean-math-paper:0.2.0
   - `id`: ID of the affiliation, which is used to link the authors to the affiliation, see above.
   - `name`: Name of the affiliation.
 - `date`: Date of the paper.
-- `heading-color`: Color of the headings including the title.
-- `link-color`: Color of the links.
 - `abstract`: Abstract of the paper. If not provided, nothing will be shown.
 - `keywords`: List of keywords of the paper. If not provided, nothing will be shown.
 - `AMS`: List of AMS subject classifications of the paper. If not provided, nothing will be shown.
+- `heading-color`: Color of the headings including the title.
+- `link-color`: Color of the links.
 
 ## Acknowledgements
 
