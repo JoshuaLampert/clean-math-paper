@@ -113,7 +113,6 @@
 }
 
 #let template(
-  lang: "en",
   title: "",
   authors: (),
   affiliations: (),
@@ -121,6 +120,7 @@
   abstract: none,
   keywords: (),
   AMS: (),
+  lang: "en",
   heading-color: rgb("#000000"),
   link-color: rgb("#000000"),
   body,
