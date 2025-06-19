@@ -54,10 +54,30 @@ The template uses #link("https://typst.app/universe/package/great-theorems/")[`g
   This is the proof of the example theorem.
 ]
 
-We also provide definitions, lemmas, remarks, examples, and questions among others. Here is an example of a definition:
+
+We also provide `definition`, `lemma`, `remark`, `example`, and `question`s among others. Here is an example of a definition:
 
 #definition(title: "Example Definition")[
   This is an example definition.
+]
+
+#question(title: "Custom mathblock?")[
+  How do you define a custom mathblock?
+]
+
+#let answer = my-mathblock(
+  blocktitle: "Answer",
+  bodyfmt: text.with(style: "italic"),
+)
+
+#answer[
+  You can define a custom mathblock like this:
+  ```typst
+  #let answer = my-mathblock(
+    blocktitle: "Answer",
+    bodyfmt: text.with(style: "italic"),
+  )
+  ```
 ]
 
 Similar as for the equations, the numbering of the theorems is determined by the section they are in. We can reference theorems by `@label` like this: @th:example.

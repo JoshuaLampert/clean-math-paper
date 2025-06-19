@@ -40,6 +40,19 @@ typst init @preview/clean-math-paper:0.2.0
 - `heading-color`: Color of the headings including the title.
 - `link-color`: Color of the links.
 
+### Support for mathblocks
+
+This template uses the [great-theorems](https://typst.app/universe/package/great-theorems) package to provide a set of mathblocks. Currently, the following blocks are available: `theorem`, `proposition`, `corollary`, `lemma`, `definition`, `remark`, `example`, `question`, and `proof`. If you want to define your own block, you can do this, e.g., by
+
+```typst
+#let answer = my-mathblock(
+  blocktitle: "Answer",
+  bodyfmt: text.with(style: "italic"),
+)
+```
+
+where `my-mathblock` already includes the counter shared between mathblocks. You can also directly use `mathblock` instead if you do not want to use the default setting used in this template.
+
 ## Acknowledgements
 
 Some parts of this template are based on the [arkheion](https://github.com/mgoulao/arkheion) template.
