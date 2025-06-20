@@ -36,8 +36,8 @@ typst init @preview/clean-math-paper:0.2.0
 - `abstract`: Abstract of the paper. If not provided, nothing will be shown.
 - `keywords`: List of keywords of the paper. If not provided, nothing will be shown.
 - `AMS`: List of AMS subject classifications of the paper. If not provided, nothing will be shown.
-- `lang`: Language of the paper. Supported languages are English, German, French and Spanish, default is "en".
-- `translations`: Dictionary to override the language translations. Please refer to the `Support for languages` section for more informations.
+- `lang`: Language of the paper. Supported languages are English, German, French, and Spanish, default is "en".
+- `translations`: Dictionary to override the language translations. Please refer to the `Support for languages` section for more information.
 - `heading-color`: Color of the headings including the title.
 - `link-color`: Color of the links.
 
@@ -56,7 +56,7 @@ where `my-mathblock` already includes the counter shared between mathblocks. You
 
 ### Support for languages
 
-This template includes translations for English, German, French and Spanish. To use one of these languages, set the lang parameter to `en`, `de`, `fr` or `es`:
+This template includes translations for English, German, French, and Spanish. To use one of these languages, set the lang parameter to `en`, `de`, `fr`, or `es`:
 
 ```typst
 #show: template.with(
@@ -65,8 +65,10 @@ This template includes translations for English, German, French and Spanish. To 
 ```
 
 For languages not included by default, or to override existing translations:
+
 - set `lang` to your language's ISO code (see [Typst docs](https://typst.app/docs/reference/text/text/#parameters-lang))
-- provide a `translations` dictionnary with your custom translations, like below
+- provide a `translations` dictionary with your custom translations, like below
+
 ```typst
 #show: template.with(
   lang: "en",
@@ -89,6 +91,7 @@ For languages not included by default, or to override existing translations:
 ```
 
 You can also register a new language with `add-language`.
+
 ```typst
 #add-language("en", (
   "theorem": "Theorem",
@@ -96,8 +99,7 @@ You can also register a new language with `add-language`.
 ))
 ```
 
-To modify specific translations for a supported language, a partial dictionary is enough. Only the specified keys with be overriden.
-
+To modify specific translations for a supported language, a partial dictionary is enough. Only the specified keys will be overridden.
 
 ## Acknowledgements
 
