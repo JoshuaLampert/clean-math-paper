@@ -81,17 +81,6 @@
   }
 }
 
-#let add-language(lang, translations) = {
-  language-translations.update(value => {
-    if lang in value {
-      value.insert(lang, value.at(lang) + translations)
-    } else {
-      value.insert(lang, translations)
-    }
-    value
-  })
-}
-
 // counter for mathblocks
 #let theoremcounter = rich-counter(
   identifier: "mathblocks",
@@ -187,7 +176,14 @@
 
   // Overrides the current translations
   if lang != none and translations != none {
-    add-language(lang, translations)
+    language-translations.update(value => {
+      if lang in value {
+        value.insert(lang, value.at(lang) + translations)
+      } else {
+        value.insert(lang, translations)
+      }
+      value
+    })
   }
 
   // table label on top and not below the table
