@@ -90,16 +90,7 @@ For languages not included by default, or to override existing translations:
 )
 ```
 
-You can also register a new language with `add-language`.
-
-```typst
-#add-language("en", (
-  "theorem": "Theorem",
-  // ...
-))
-```
-
-To modify specific translations for a supported language, a partial dictionary is enough. Only the specified keys will be overridden. Note that you need to call `add-language` before the `#show: template.with(...)` call, otherwise the translations might not be applied.
+To modify specific translations for a supported language, a partial dictionary is enough. Only the specified keys will be overridden.
 
 ## Acknowledgements
 
