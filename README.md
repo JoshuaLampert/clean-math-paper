@@ -99,7 +99,7 @@ You can also register a new language with `add-language`.
 ))
 ```
 
-To modify specific translations for a supported language, a partial dictionary is enough. Only the specified keys will be overridden.
+To modify specific translations for a supported language, a partial dictionary is enough. Only the specified keys will be overridden. Note that you need to call `add-language` before the `#show: template.with(...)` call, otherwise the translations might not be applied.
 
 ## Acknowledgements
 
