@@ -158,6 +158,7 @@
   translations: none,
   heading-color: rgb("#000000"),
   link-color: rgb("#000000"),
+  lines: true,
   body,
 ) = {
   // Set the document's basic properties.
@@ -205,7 +206,9 @@
   set math.equation(supplement: none)
   show math.equation: box // no line breaks in inline math
 
-  line(length: 100%, stroke: 2pt)
+  if lines {
+    line(length: 100%, stroke: 2pt)
+  }
   // Title row.
   pad(
     bottom: 4pt,
@@ -215,7 +218,9 @@
       #v(1em, weak: true)
     ],
   )
-  line(length: 100%, stroke: 2pt)
+  if lines {
+    line(length: 100%, stroke: 2pt)
+  }
 
   // Author information.
   pad(
