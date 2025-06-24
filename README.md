@@ -40,6 +40,7 @@ typst init @preview/clean-math-paper:0.2.1
 - `translations`: Dictionary to override the language translations. Please refer to the `Support for languages` section for more information.
 - `heading-color`: Color of the headings including the title.
 - `link-color`: Color of the links.
+- `lines`: Boolean to enable or disable the horizontal lines around the title. Default is `true`.
 
 ### Support for mathblocks
 
