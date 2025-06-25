@@ -17,7 +17,7 @@ The template is already filled with dummy data, to give users an impression what
 - after [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation) you can conveniently use the following to create a new folder containing this project.
 
 ```bash
-typst init @preview/clean-math-paper:0.2.1
+typst init @preview/clean-math-paper:0.2.2
 ```
 
 - edit the data in `main.typ` → `#show template.with([your data])`
@@ -27,10 +27,10 @@ typst init @preview/clean-math-paper:0.2.1
 - `title`: Title of the paper.
 - `authors`: List of names of the authors of the paper. Each entry of the list is a dictionary with the following keys:
   - `name`: Name of the author.
-  - `affiliation-id`: The ID of the affiliation in `affiliations`, see below.
+  - `affiliation-id`: The ID of the affiliation in `affiliations`, see below. Can also be left empty.
   - optionally `orcid`: The [ORCID](https://orcid.org/) of the author. If provided, the author's name will be linked to their ORCID profile.
 - `affiliations`: List of affiliations of the authors. Each entry of the list is a dictionary with the following keys:
-  - `id`: ID of the affiliation, which is used to link the authors to the affiliation, see above.
+  - `id`: ID of the affiliation, which is used to link the authors to the affiliation, see above. Can also be left empty.
   - `name`: Name of the affiliation.
 - `date`: Date of the paper.
 - `abstract`: Abstract of the paper. If not provided, nothing will be shown.
