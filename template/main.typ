@@ -19,7 +19,7 @@
   // Example: `abstract: [This is my abstract...]`
   abstract: lorem(30),
   keywords: ("First keyword", "Second keyword", "etc."),
-  AMS: ("65M70", "65M12", )
+  AMS: ("65M70", "65M12")
 )
 
 = Introduction
