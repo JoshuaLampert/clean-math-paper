@@ -169,8 +169,6 @@
     number-align: center,
   )
   set text(font: "New Computer Modern", lang: lang)
-  show link: set text(fill: link-color)
-  show ref: set text(fill: link-color)
   set enum(numbering: "(i)")
   set outline(indent: 2em) // indent: auto does not work well with appendices
   show: great-theorems-init
@@ -243,7 +241,7 @@
                 columns: (8pt, auto, 8pt),
                 rows: 10pt,
                 [],
-                text(black)[*#author.name*#super(to-string(affiliation-id))],
+                [*#author.name*#super(to-string(affiliation-id))],
                 [
                   #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
                 ],
@@ -275,6 +273,10 @@
   )
 
   align(center)[#date]
+
+  // Set the color for links and references after the authors to not overwrite the text color in the case of an available orcid.
+  show link: set text(fill: link-color)
+  show ref: set text(fill: link-color)
 
   // Abstract.
   if abstract != none {
