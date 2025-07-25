@@ -274,7 +274,7 @@
 
   align(center)[#date]
 
-  // Set the color for links and references after the authors to not overwrite the text color in the case of available an orcid.
+  // Set the color for links and references after the authors to not overwrite the text color in the case of an available orcid.
   show link: set text(fill: link-color)
   show ref: set text(fill: link-color)
 
