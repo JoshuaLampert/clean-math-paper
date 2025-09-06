@@ -3,7 +3,7 @@
 #let date = datetime.today().display("[month repr:long] [day], [year]")
 
 // Modify page args, which can be overwritten in the template call
-#default-page-args.insert("numbering", "1/1")
+#page-args.insert("numbering", "1/1")
 
 #show: template.with(
   title: "Typst template for mathematical papers",
@@ -24,7 +24,8 @@
   abstract: lorem(30),
   keywords: ("First keyword", "Second keyword", "etc."),
   AMS: ("65M70", "65M12"),
-  // page-args: default-page-args,
+  // Pass page-args to change page settings
+  // page-args: page-args,
 )
 
 = Introduction

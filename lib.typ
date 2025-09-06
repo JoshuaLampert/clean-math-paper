@@ -146,7 +146,7 @@
   }
 }
 
-#let default-page-args = (
+#let page-args = (
   margin: (left: 25mm, right: 25mm, top: 25mm, bottom: 30mm),
   numbering: "1",
   number-align: center,
@@ -165,7 +165,7 @@
   heading-color: rgb("#000000"),
   link-color: rgb("#000000"),
   lines: true,
-  page-args: default-page-args,
+  page-args: page-args,
   body,
 ) = {
   // Set the document's basic properties.
