@@ -151,6 +151,7 @@
   numbering: "1",
   number-align: center,
 )
+#let text-args-title = (fill: auto, size: 1.75em,)
 #let text-args-authors = (weight: "bold",)
 
 #let template(
@@ -167,6 +168,7 @@
   link-color: rgb("#000000"),
   lines: true,
   page-args: page-args,
+  text-args-title: text-args-title,
   text-args-authors: text-args-authors,
   body,
 ) = {
@@ -213,11 +215,14 @@
     line(length: 100%, stroke: 2pt)
   }
   // Title row.
+  if text-args-title.fill == auto {
+    text-args-title.insert("fill", heading-color)
+  }
   pad(
     bottom: 4pt,
     top: 4pt,
     align(center)[
-      #block(text(weight: 500, fill: heading-color, 1.75em, title))
+      #block(text(..text-args-title, title))
       #v(1em, weak: true)
     ],
   )
