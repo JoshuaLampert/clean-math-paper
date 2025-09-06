@@ -146,6 +146,12 @@
   }
 }
 
+#let default-page-args = (
+  margin: (left: 25mm, right: 25mm, top: 25mm, bottom: 30mm),
+  numbering: "1",
+  number-align: center,
+)
+
 #let template(
   title: "",
   authors: (),
@@ -159,15 +165,12 @@
   heading-color: rgb("#000000"),
   link-color: rgb("#000000"),
   lines: true,
+  page-args: default-page-args,
   body,
 ) = {
   // Set the document's basic properties.
   set document(author: authors.map(a => a.name), title: title)
-  set page(
-    margin: (left: 25mm, right: 25mm, top: 25mm, bottom: 30mm),
-    numbering: "1",
-    number-align: center,
-  )
+  set page(..page-args)
   set text(font: "New Computer Modern", lang: lang)
   set enum(numbering: "(i)")
   set outline(indent: 2em) // indent: auto does not work well with appendices
