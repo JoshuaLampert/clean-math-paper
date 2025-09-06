@@ -4,6 +4,7 @@
 
 // Modify page args, which can be overwritten in the template call
 #page-args.insert("numbering", "1/1")
+#text-args-authors.insert("size", 12pt)
 
 #show: template.with(
   title: "Typst template for mathematical papers",
@@ -26,6 +27,8 @@
   AMS: ("65M70", "65M12"),
   // Pass page-args to change page settings
   // page-args: page-args,
+  // Pass text-args-authors to change author name text settings
+  // text-args-authors: text-args-authors,
 )
 
 = Introduction
