@@ -2,8 +2,10 @@
 
 #let date = datetime.today().display("[month repr:long] [day], [year]")
 
-// Modify page args, which can be overwritten in the template call
+// Modify some arguments, which can be overwritten in the template call
 #page-args.insert("numbering", "1/1")
+#text-args-title.insert("size", 2em)
+#text-args-title.insert("fill", black)
 #text-args-authors.insert("size", 12pt)
 
 #show: template.with(
@@ -29,6 +31,8 @@
   // page-args: page-args,
   // Pass text-args-authors to change author name text settings
   // text-args-authors: text-args-authors,
+  // Pass text-args-title to change title text settings
+  // text-args-title: text-args-title,
 )
 
 = Introduction
