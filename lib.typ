@@ -151,6 +151,7 @@
   numbering: "1",
   number-align: center,
 )
+#let text-args-authors = (weight: "bold",)
 
 #let template(
   title: "",
@@ -166,6 +167,7 @@
   link-color: rgb("#000000"),
   lines: true,
   page-args: page-args,
+  text-args-authors: text-args-authors,
   body,
 ) = {
   // Set the document's basic properties.
@@ -236,6 +238,7 @@
         } else {
           ""
         }
+        #let author-with-id = [#text(..text-args-authors, author.name)#super(to-string(affiliation-id))]
         #if author.keys().contains("orcid") {
           link("http://orcid.org/" + author.orcid)[
             #pad(
@@ -244,10 +247,8 @@
                 columns: (8pt, auto, 8pt),
                 rows: 10pt,
                 [],
-                [*#author.name*#super(to-string(affiliation-id))],
-                [
-                  #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
-                ],
+                author-with-id,
+                [#pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))],
               ),
             )
           ]
@@ -255,7 +256,7 @@
           grid(
             columns: auto,
             rows: 2pt,
-            [*#author.name*#super(to-string(affiliation-id))],
+            author-with-id,
           )
         }
       ]),
