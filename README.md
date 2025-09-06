@@ -41,6 +41,7 @@ typst init @preview/clean-math-paper:0.2.3
 - `heading-color`: Color of the headings including the title.
 - `link-color`: Color of the links.
 - `lines`: Boolean to enable or disable the horizontal lines around the title. Default is `true`.
+- `page-args`: Dictionary to set page arguments, e.g., to change the number of columns or page numbering. See [Typst docs](https://typst.app/docs/reference/layout/page/) for more information.
 
 ### Support for mathblocks
 
