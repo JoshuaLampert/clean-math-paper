@@ -1,4 +1,4 @@
-#import "@preview/clean-math-paper:0.2.4": *
+#import "@local/clean-math-paper:0.2.4": *
 
 #let date = datetime.today().display("[month repr:long] [day], [year]")
 

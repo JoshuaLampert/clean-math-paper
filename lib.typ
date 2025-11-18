@@ -170,6 +170,7 @@
   page-args: page-args,
   text-args-title: text-args-title,
   text-args-authors: text-args-authors,
+  ncolumns: 1,
   body,
 ) = {
   // Set the document's basic properties.
@@ -320,7 +321,9 @@
   set par(justify: true)
   set text(hyphenate: false)
 
-  body
+  columns(ncolumns)[
+    #body
+  ]
 }
 
 #let appendices(body) = {
@@ -338,5 +341,5 @@
       }
     },
   )
-  [#pagebreak() #body]
+  [#colbreak() #body]
 }

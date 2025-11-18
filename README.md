@@ -41,6 +41,7 @@ typst init @preview/clean-math-paper:0.2.4
 - `heading-color`: Color of the headings including the title.
 - `link-color`: Color of the links.
 - `lines`: Boolean to enable or disable the horizontal lines around the title. Default is `true`.
+- `ncolumns`: Number of columns of the paper. Default is `1`.
 - `page-args`: Dictionary to set page arguments, e.g., to change the number of columns or page numbering. See [Typst docs](https://typst.app/docs/reference/layout/page/) for more information. The default page arguments can be accessed via `page-args`, i.e., if you want to change only some of the default settings, you can use `insert` on `page-args` to change specific settings.
 - `text-args-title`: Dictionary to set text arguments for the title, e.g., to change the font size or color. See [Typst docs](https://typst.app/docs/reference/text/text/) for more information. The default arguments can be accessed via `text-args-title`, i.e., if you want to change only some of the default settings, you can use `insert` on `text-args-title` to change specific settings.
 - `text-args-authors`: Dictionary to set text arguments for the authors' names, e.g., to change the font weight or style. See [Typst docs](https://typst.app/docs/reference/text/text/) for more information. The default arguments can be accessed via `text-args-authors`, i.e., if you want to change only some of the default settings, you can use `insert` on `text-args-authors` to change specific settings.
