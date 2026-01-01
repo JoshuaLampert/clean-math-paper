@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: typst-community/setup-typst@v4
       - run: typst compile --root . template/main.typ main.pdf
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: PDF
           path: main.pdf
