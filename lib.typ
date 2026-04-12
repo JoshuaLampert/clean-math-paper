@@ -171,6 +171,8 @@
   text-args-title: text-args-title,
   text-args-authors: text-args-authors,
   ncolumns: 1,
+  equation-box-inline: true,
+  equation-box-block: false,
   body,
 ) = {
   // Set the document's basic properties.
@@ -209,8 +211,23 @@
   // Using headcount:
   // show heading: reset-counter(counter(math.equation))
   // set math.equation(numbering: dependent-numbering("(1.1)"))
+  //
   set math.equation(supplement: none)
-  show math.equation: box // no line breaks in inline math
+
+  show math.equation.where(block: false): x => {
+    if equation-box-inline {
+      box(x) // no line breaks in inline math
+    } else {
+      x
+    }
+  }
+  show math.equation.where(block: true): x => {
+    if equation-box-block {
+      box(x)
+    } else {
+      x
+    }
+  }
 
   if lines {
     line(length: 100%, stroke: 2pt)
