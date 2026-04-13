@@ -1,7 +1,7 @@
 # clean-math-paper
 
 [![Build Typst Document](https://github.com/JoshuaLampert/clean-math-paper/actions/workflows/build.yml/badge.svg)](https://github.com/JoshuaLampert/clean-math-paper/actions/workflows/build.yml)
-[![Repo](https://img.shields.io/badge/GitHub-repo-blue)](https://github.com/JoshuaLampert/clean-math-paper)
+[![GitHub repository](https://img.shields.io/badge/GitHub-repo-blue)](https://github.com/JoshuaLampert/clean-math-paper)
 [![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
 
 [Typst](https://typst.app/home/) paper template for mathematical papers built for simple, efficient use and a clean look.
@@ -17,7 +17,7 @@ The template is already filled with dummy data, to give users an impression what
 - after [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation) you can conveniently use the following to create a new folder containing this project.
 
 ```bash
-typst init @preview/clean-math-paper:0.2.5
+typst init @preview/clean-math-paper:0.2.6
 ```
 
 - edit the data in `main.typ` → `#show template.with([your data])`
