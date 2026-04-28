@@ -27,7 +27,7 @@ typst init @preview/clean-math-paper:0.2.6
 - `title`: Title of the paper.
 - `authors`: List of names of the authors of the paper. Each entry of the list is a dictionary with the following keys:
   - `name`: Name of the author.
-  - `affiliation-id`: The ID of the affiliation in `affiliations`, see below. Can also be left empty or consist of multiple IDs separated by commas (it does not need to match an existing affiliation ID).
+  - `affiliation-id`: The ID of the affiliation in `affiliations`, see below. Can also be left empty or consist of multiple IDs separated by commas (it does not need to match an `id` from the `affiliations` list).
   - optionally `orcid`: The [ORCID](https://orcid.org/) of the author. If provided, the author's name will be linked to their ORCID profile.
 - `affiliations`: List of affiliations of the authors. Each entry of the list is a dictionary with the following keys:
   - `id`: ID of the affiliation, which is used to link the authors to the affiliation, see above. Can also be left empty.
