@@ -12,7 +12,7 @@ Of course, it can also be used for other subjects, but the following math-specif
 
 ## Set-Up
 
-The template is already filled with dummy data, to give users an impression what it looks like. The paper is obtained by compiling `main.typ`.
+The [template](https://github.com/JoshuaLampert/clean-math-paper/tree/3e7391e6674880f49b4b3f8f5eaa051f34564f64/template) is already filled with dummy data, to give users an impression what it looks like and to showcase some of its features. The paper is obtained by compiling `main.typ`.
 
 - after [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation) you can conveniently use the following to create a new folder containing this project.
 
@@ -27,7 +27,7 @@ typst init @preview/clean-math-paper:0.2.6
 - `title`: Title of the paper.
 - `authors`: List of names of the authors of the paper. Each entry of the list is a dictionary with the following keys:
   - `name`: Name of the author.
-  - `affiliation-id`: The ID of the affiliation in `affiliations`, see below. Can also be left empty.
+  - `affiliation-id`: The ID of the affiliation in `affiliations`, see below. Can also be left empty or consist of multiple IDs separated by commas (it does not need to match an `id` from the `affiliations` list).
   - optionally `orcid`: The [ORCID](https://orcid.org/) of the author. If provided, the author's name will be linked to their ORCID profile.
 - `affiliations`: List of affiliations of the authors. Each entry of the list is a dictionary with the following keys:
   - `id`: ID of the affiliation, which is used to link the authors to the affiliation, see above. Can also be left empty.
