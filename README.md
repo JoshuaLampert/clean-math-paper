@@ -17,7 +17,7 @@ The [template](https://github.com/JoshuaLampert/clean-math-paper/blob/main/templ
 - after [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation) you can conveniently use the following to create a new folder containing this project.
 
 ```bash
-typst init @preview/clean-math-paper:0.2.6
+typst init @preview/clean-math-paper:0.2.7
 ```
 
 - edit the data in `main.typ` → `#show template.with([your data])`
