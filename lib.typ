@@ -16,6 +16,7 @@
       "example": "Example",
       "question": "Question",
       "proof": "Proof",
+      "proof-of": "Proof of",
       "keywords": "Keywords",
       "ams": "AMS subject classification",
       "appendix": "Appendix",
@@ -31,6 +32,7 @@
       "example": "Beispiel",
       "question": "Frage",
       "proof": "Beweis",
+      "proof-of": "Beweis von",
       "keywords": "Schlüsselwörter",
       "ams": "AMS-Klassifikation",
       "appendix": "Anhang",
@@ -46,6 +48,7 @@
       "example": "Exemple",
       "question": "Question",
       "proof": "Preuve",
+      "proof-of": "Preuve de",
       "keywords": "Mots clés",
       "ams": "Classification AMS",
       "appendix": "Annexe",
@@ -61,6 +64,7 @@
       "example": "Ejemplo",
       "question": "Pregunta",
       "proof": "Demostración",
+      "proof-of": "Demostración de",
       "keywords": "Palabras clave",
       "ams": "Clasificación AMS",
       "appendix": "Apéndice",
@@ -126,7 +130,7 @@
 
 #let question = my-mathblock(blocktitle: [_#get-language-title("question")_])
 
-#let proof = proofblock(prefix: [_#get-language-title("proof")._])
+#let proof = proofblock(prefix: [_#get-language-title("proof")._], prefix_with_of: of => text(style: "oblique", [#get-language-title("proof-of") #of.]))
 
 // To also handle content (e.g. something like $dagger$) as affiliation-id,
 // cf. https://github.com/typst/typst/issues/2196#issuecomment-1728135476
