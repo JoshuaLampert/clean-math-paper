@@ -150,6 +150,23 @@
   }
 }
 
+// Resolve the `affiliation-id`s of an author (a single id or several ids
+// separated by commas) to the corresponding names in `affiliations`.
+// Ids without a matching affiliation are ignored.
+#let affiliations-of(author, affiliations) = {
+  if affiliations == none {
+    return ()
+  }
+  let ids = to-string(author.at("affiliation-id", default: ""))
+    .split(",")
+    .map(id => id.trim())
+    .filter(id => id != "")
+  ids
+    .map(id => affiliations.find(affiliation => to-string(affiliation.at("id", default: "")) == id))
+    .filter(affiliation => affiliation != none)
+    .map(affiliation => affiliation.name)
+}
+
 #let page-args = (
   margin: (left: 25mm, right: 25mm, top: 25mm, bottom: 30mm),
   numbering: "1",
@@ -162,6 +179,8 @@
   title: "",
   authors: (),
   affiliations: (),
+  authors-style: "shared",
+  authors-per-row: 3,
   date: datetime.today().display(),
   abstract: none,
   keywords: (),
@@ -252,55 +271,87 @@
   }
 
   // Author information.
-  pad(
-    top: 0.5em,
-    x: 2em,
-    grid(
-      columns: (1fr,) * calc.min(3, authors.len()),
-      gutter: 1.5em,
-      ..authors.map(author => align(center)[
-        #let affiliation-id = if "affiliation-id" in author {
-          author.affiliation-id
-        } else {
-          ""
-        }
-        #let author-with-id = [#text(..text-args-authors, author.name)#super(to-string(affiliation-id))]
-        #if author.keys().contains("orcid") {
-          link("http://orcid.org/" + author.orcid)[
-            #pad(
-              bottom: -8pt,
-              grid(
-                columns: (8pt, auto, 8pt),
-                rows: 10pt,
-                [],
-                author-with-id,
-                [#pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))],
-              ),
-            )
-          ]
-        } else {
+  // Format a single author: the name (with a superscript referring to the
+  // affiliations and, if available, a link to the author's ORCID), followed by
+  // the given affiliations and, if available, the author's email address.
+  let format-author(author, affiliation-id: "", author-affiliations: ()) = align(center)[
+    #let author-with-id = [#text(..text-args-authors, author.name)#super(to-string(affiliation-id))]
+    #if author.keys().contains("orcid") {
+      link("http://orcid.org/" + author.orcid)[
+        #pad(
+          bottom: -8pt,
           grid(
-            columns: auto,
-            rows: 2pt,
+            columns: (8pt, auto, 8pt),
+            rows: 10pt,
+            [],
             author-with-id,
-          )
-        }
-      ]),
-    ),
+            [#pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))],
+          ),
+        )
+      ]
+    } else {
+      grid(
+        columns: auto,
+        rows: 2pt,
+        author-with-id,
+      )
+    }
+    #for affiliation in author-affiliations {
+      affiliation
+      linebreak()
+    }
+    #if "email" in author {
+      link("mailto:" + author.email)
+    }
+  ]
+
+  let authors-grid = grid.with(
+    columns: (1fr,) * calc.min(authors-per-row, authors.len()),
+    gutter: 1.5em,
   )
 
-  // Affiliation information.
-  pad(
-    top: 0.5em,
-    x: 2em,
-    if affiliations != none {
-      for affiliation in affiliations {
-        align(center)[
-          #super(to-string(affiliation.id))#affiliation.name
-        ]
-      }
-    },
-  )
+  if authors-style == "shared" {
+    // All affiliations are listed below the authors and are linked to the
+    // authors by superscripts.
+    pad(
+      top: 0.5em,
+      x: 2em,
+      authors-grid(
+        ..authors.map(author => format-author(
+          author,
+          affiliation-id: author.at("affiliation-id", default: ""),
+        )),
+      ),
+    )
+
+    // Affiliation information.
+    pad(
+      top: 0.5em,
+      x: 2em,
+      if affiliations != none {
+        for affiliation in affiliations {
+          align(center)[
+            #super(to-string(affiliation.at("id", default: "")))#affiliation.name
+          ]
+        }
+      },
+    )
+  } else if authors-style == "per-author" {
+    // Every author is typeset in their own column together with their
+    // affiliations, so no superscripts are needed.
+    pad(
+      top: 0.5em,
+      x: 2em,
+      authors-grid(
+        ..authors.map(author => format-author(
+          author,
+          author-affiliations: affiliations-of(author, affiliations),
+        )),
+      ),
+    )
+  } else {
+    panic("Unknown authors-style: " + authors-style + ". Use \"shared\" or \"per-author\".")
+  }
 
   align(center)[#date]
 

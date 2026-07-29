@@ -29,9 +29,14 @@ typst init @preview/clean-math-paper:0.2.7
   - `name`: Name of the author.
   - `affiliation-id`: The ID of the affiliation in `affiliations`, see below. Can also be left empty or consist of multiple IDs separated by commas (it does not need to match an `id` from the `affiliations` list).
   - optionally `orcid`: The [ORCID](https://orcid.org/) of the author. If provided, the author's name will be linked to their ORCID profile.
+  - optionally `email`: The email address of the author. If provided, it will be shown below the author's name as a `mailto:` link.
 - `affiliations`: List of affiliations of the authors. Each entry of the list is a dictionary with the following keys:
   - `id`: ID of the affiliation, which is used to link the authors to the affiliation, see above. Can also be left empty.
   - `name`: Name of the affiliation.
+- `authors-style`: How the authors and their affiliations are typeset. Default is `"shared"`.
+  - `"shared"`: The authors are printed next to each other and all affiliations are listed below them, linked to the authors by superscripts.
+  - `"per-author"`: Every author is printed in their own column together with their own affiliations below their name, so no superscripts are used. The affiliations are looked up in the `affiliations` list via the `affiliation-id`s of the author; IDs without a matching affiliation are ignored.
+- `authors-per-row`: Maximum number of authors printed next to each other. Further authors are printed in a new row. Default is `3`.
 - `date`: Date of the paper.
 - `abstract`: Abstract of the paper. If not provided, nothing will be shown.
 - `keywords`: List of keywords of the paper. If not provided, nothing will be shown.
