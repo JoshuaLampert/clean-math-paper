@@ -24,7 +24,7 @@
   // authors-style: "per-author",
   authors-per-row: 3,
   date: date,
-  heading-color: rgb("#0000ff"),
+  heading-color: rgb("#374CA9"),
   link-color: rgb("#008002"),
   // Insert your abstract after the colon, wrapped in brackets.
   // Example: `abstract: [This is my abstract...]`
