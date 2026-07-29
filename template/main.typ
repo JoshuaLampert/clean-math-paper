@@ -1,4 +1,4 @@
-#import "@preview/clean-math-paper:0.2.7": *
+#import "../lib.typ": *
 
 #let date = datetime.today().display("[month repr:long] [day], [year]")
 
@@ -11,14 +11,18 @@
 #show: template.with(
   title: "Typst template for mathematical papers",
   authors: (
-    (name: "Author 1", affiliation-id: 1, orcid: "0000-0000-0000-0000"),
-    (name: "Author 2",  affiliation-id: "2,*"),
+    (name: "Author 1", affiliation-id: 1, email: "author1@example.com", orcid: "0000-0000-0000-0000"),
+    (name: "Author 2",  affiliation-id: "2,*", email: "author2@example.com"),
   ),
   affiliations: (
     (id: 1, name: "Affiliation 1, Address 1"),
     (id: 2, name: "Affiliation 2, Address 2"),
     (id: "*", name: "Corresponding author")
   ),
+  // Use `authors-style: "per-author"` to print the affiliations of each author
+  // below their name instead of collecting them below all authors
+  // authors-style: "per-author",
+  authors-per-row: 3,
   date: date,
   heading-color: rgb("#0000ff"),
   link-color: rgb("#008002"),
